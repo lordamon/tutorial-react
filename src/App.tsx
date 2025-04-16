@@ -17,9 +17,10 @@ function App() {
       <Counter start={10} />
       <Counter start={100} increment={5} />
       <hr />
+      <RefVsState />
+      <hr />
       <RandomUser />
       <hr />
-      <RefVsState />
     </>
   );
 }

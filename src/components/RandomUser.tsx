@@ -40,6 +40,25 @@ export const RandomUser = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
+  const loadUser2 = async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      await mySleep(1000); // ⏳ aspetta 1 secondo
+      const user = await fetchRandomUser();
+      setUser(user);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Errore sconosciuto");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     let isMounted = true;
 
@@ -77,19 +96,22 @@ export const RandomUser = () => {
   }, []);
 
   return (
-    <div>
-      <div>Random User</div>
+    <div className="my-3">
+      <h2 className="text-3xl">Random User</h2>
       {loading && <Spinner />}
       {error && <div style={{ color: "red" }}>Errore: {error}</div>}
       {user && !loading && !error && (
         <>
-          <img src={user.picture.large} alt="User" />
+          <img className="rounded-2xl" src={user.picture.large} alt="User" />
           <div>
             <strong>Name:</strong> {user.name.first} {user.name.last}
           </div>
           <div>
             <strong>Email:</strong> {user.email}
           </div>
+          <button className="btn-light" onClick={loadUser2}>
+            Reload
+          </button>
         </>
       )}
     </div>
