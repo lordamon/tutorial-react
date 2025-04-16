@@ -23,7 +23,8 @@ aggiunto il concetto di funzione di cleanup per useEffect (per evitare il doppio
 
 # RefVsState (componente nuovo)
 
-con questo componente mostro la differenza tra useState e useRef (sfrutto il console.log per spiegarlo)
+con questo componente mostro la differenza tra useState e useRef (sfrutto anche il console.log per spiegarlo)
+mostro anche come una variabile let invece viene costantemente reimpostata ad ogni render
 
 # Link
 
