@@ -1,4 +1,5 @@
 import { Counter } from "./components/Counter";
+import MyImage from "./components/MyImage";
 import { RandomUser } from "./components/RandomUser";
 import { RefVsState } from "./components/RefVsState";
 import WelcomeMessage from "./components/WelcomeMessage";
@@ -6,10 +7,7 @@ import WelcomeMessage from "./components/WelcomeMessage";
 function App() {
   return (
     <>
-      <div className="text-center">
-        <img className="w-[200px] block m-auto" src="/cat.jpg" alt="Cat" />
-        <p>Cat image (public folder)</p>
-      </div>
+      <MyImage />
 
       <WelcomeMessage text={"Titolo della pagina!"} isHeader />
       <WelcomeMessage text={"testo di prova testo di prova testo di prova testo di prova testo di prova"} isHeader={false} />
